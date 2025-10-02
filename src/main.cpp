@@ -84,6 +84,30 @@ int main(int argc, char* argv []){
         circle.setRadius(circleRadius);
         circle.setFillColor(sf::Color(c[0]*255, c[1]*255, c[2]*255));
         sf::Vector2f newP(circle.getPosition().x + circleSpeedX, circle.getPosition().y + circleSpeedY);
+
+        float left   = newP.x;
+        float right  = newP.x + circle.getGlobalBounds().size.x;
+        float top    = newP.y;
+        float bottom = newP.y + circle.getGlobalBounds().size.y;
+
+        if (left < 0) {
+            circleSpeedX = std::abs(circleSpeedX); 
+            newP.x = 0; 
+        }
+        else if (right > wWidth) {
+            circleSpeedX = -std::abs(circleSpeedX); 
+            newP.x = wWidth - circle.getGlobalBounds().size.x;
+        }
+
+        if (top < 0) {
+            circleSpeedY = std::abs(circleSpeedY); 
+            newP.y = 0;
+        }
+        else if (bottom > wHeight) {
+            circleSpeedY = -std::abs(circleSpeedY); 
+            newP.y = wHeight - circle.getGlobalBounds().size.y;
+        }
+
         circle.setPosition(newP);
 
         window.clear();
