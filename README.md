@@ -20,6 +20,16 @@ A lightweight project using SFML and ImGui-SFML.
 
 ## Building
 
+additional dependencies you might need (for Ubuntu)
+```bash
+sudo apt install libx11-dev libxcursor-dev libxrandr-dev libxi-dev
+sudo apt install libgl1-mesa-dev
+sudo apt install libudev-dev
+sudo apt install libfreetype6-dev
+sudo apt install libogg-dev libvorbis-dev
+sudo apt install libflac-dev
+```
+
 ### **Option 1**: Build with dependencies (SFML + ImGui-SFML)
 Build everything, including external dependencies:
 ```bash
